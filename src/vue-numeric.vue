@@ -262,6 +262,18 @@ export default {
           this.$refs.readOnly.className = this.readOnlyClass
         })
       }
+    },
+
+    /**
+     * Immediately reflect separator changes
+     * @param {String} newValue
+     * @param {String} oldValue
+     */
+    separator (newValue, oldValue) {
+        if (newValue !== oldValue) {
+            this.process(this.valueNumber)
+            this.amount = this.format(this.valueNumber)
+        }
     }
   },
 
